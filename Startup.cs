@@ -5,6 +5,7 @@ using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Logging;
 using IainPlimmerApi.Interfaces;
 using IainPlimmerApi.Repositories;
+using Newtonsoft.Json.Serialization;
 
 namespace IainPlimmerApi
 {
@@ -26,8 +27,17 @@ namespace IainPlimmerApi
         public void ConfigureServices(IServiceCollection services)
         {
             // Add framework services.
-            services.AddMvc();
-
+            services.AddMvc()
+                .AddJsonOptions(o => { 
+                    if (o.SerializerSettings.ContractResolver != null)
+                    {
+                        var cr = o.SerializerSettings.ContractResolver as DefaultContractResolver;
+                        //  We want a default JSON serialiser without all that camel case nonsense. 
+                        //  So we set this here.
+                        cr.NamingStrategy = null;
+                    }
+                });
+                   
             services.AddTransient<IBlogPostRespository, BlogPostRepository>();
         }
 

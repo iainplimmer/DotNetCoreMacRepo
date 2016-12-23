@@ -16,8 +16,8 @@
 <div ng-app='ngIainPlimmerApi' ng-controller='TestController as $ctrl' ng-cloak>
     <div>You have a blog post count of .... {{$ctrl.BlogPostCount}}</div>
 
-    <h3 ng-repeat-start="blog in $ctrl.BlogPosts">{{blog.title}}</h3>
-    <p>{{blog.createdDate}}</p>
+    <h3 ng-repeat-start="blog in $ctrl.BlogPosts">{{blog.Title}}</h3>
+    <p>{{blog.CreatedDate | date : 'dd MMMM yyyy'}}</p>
     <a href="" ng-repeat-end>Read more...</a>
 
 </div>
