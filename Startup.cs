@@ -49,9 +49,10 @@ namespace IainPlimmerApi
             loggerFactory.AddConsole(Configuration.GetSection("Logging"));
             loggerFactory.AddDebug();
 
-            app.UseDeveloperExceptionPage();    // Show an exception page if things so awry
-            app.UseMvc();                       // Add MVC and Web API which are now one and the same
-            app.UseStaticFiles();               // Be able to access the wwwroot folder
+            app.UseMiddleware<AuthenticateRequest>(); //  Let's add our own middleware to the solution
+            app.UseDeveloperExceptionPage();    //  Show an exception page if things so awry
+            app.UseMvc();                       //  Add MVC and Web API which are now one and the same
+            app.UseStaticFiles();               //  Be able to access the wwwroot folder
             
         }
     }
