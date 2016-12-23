@@ -29,6 +29,7 @@ namespace IainPlimmerApi
         public void ConfigureServices(IServiceCollection services)
         {            
             // Add framework services.
+            services.AddResponseCompression();
             services.AddMvc()
                 .AddJsonOptions(o => { 
                     if (o.SerializerSettings.ContractResolver != null)
@@ -49,10 +50,12 @@ namespace IainPlimmerApi
             loggerFactory.AddConsole(Configuration.GetSection("Logging"));
             loggerFactory.AddDebug();
 
+            app.UseResponseCompression();       //  Let's GZIP the response!
             app.UseMiddleware<AuthenticateRequest>(); //  Let's add our own middleware to the solution
             app.UseDeveloperExceptionPage();    //  Show an exception page if things so awry
             app.UseMvc();                       //  Add MVC and Web API which are now one and the same
             app.UseStaticFiles();               //  Be able to access the wwwroot folder
+            
             
         }
     }
