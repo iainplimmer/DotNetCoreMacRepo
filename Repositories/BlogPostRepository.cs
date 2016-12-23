@@ -6,6 +6,7 @@ namespace IainPlimmerApi.Repositories
 {
     public class BlogPostRepository : IBlogPostRespository
     {
+        /* Returns a list of artitary blog posts */
         public IEnumerable<BlogPost> GetBlogPosts()
         {
             var posts = new List<BlogPost>();
@@ -30,6 +31,13 @@ namespace IainPlimmerApi.Repositories
                 Content = "This is some content....." 
             });
             return posts;
+        }
+
+        /* Returns the number of blog posts made. */
+        public int GetBlogPostCount()
+        {
+            var posts = this.GetBlogPosts() as List<BlogPost>;
+            return posts.Count;
         }
     }
 }

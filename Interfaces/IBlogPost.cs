@@ -6,5 +6,6 @@ namespace IainPlimmerApi.Interfaces
     public interface IBlogPostRespository
     {
         IEnumerable<BlogPost> GetBlogPosts();
+        int GetBlogPostCount();
     }
 }

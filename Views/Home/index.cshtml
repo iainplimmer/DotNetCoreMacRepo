@@ -1,1 +1,13 @@
-HELLO!
+@using IainPlimmerApi.Interfaces;
+@using IainPlimmerApi.Models;
+@using IainPlimmerApi.Repositories;
+
+@model IEnumerable<BlogPost>
+@inject IBlogPostRespository blogPostRespository
+
+@{
+    Layout = "_Layout";
+}
+
+<div>Hello, you can even use dependency injection STRAIGHT into a view:</div>
+<div>You have a blog post count of.... @blogPostRespository.GetBlogPostCount()</div>

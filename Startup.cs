@@ -9,6 +9,7 @@ using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Logging;
 using IainPlimmerApi.Interfaces;
 using IainPlimmerApi.Repositories;
+using Microsoft.AspNetCore;
 
 namespace IainPlimmerApi
 {
@@ -41,7 +42,8 @@ namespace IainPlimmerApi
             loggerFactory.AddConsole(Configuration.GetSection("Logging"));
             loggerFactory.AddDebug();
 
-            app.UseMvc();
+            app.UseMvc();           //
+            app.UseStaticFiles();   // Be able to access the wwwroot folder
         }
     }
 }
