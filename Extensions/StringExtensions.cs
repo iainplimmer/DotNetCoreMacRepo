@@ -2,7 +2,7 @@ using System;
 
 namespace IainPlimmerApi.Extensions
 {
-    public static class MyExtensions
+    public static class StringExtensions
     {
         public static DateTime ToDate(this String str)
         {

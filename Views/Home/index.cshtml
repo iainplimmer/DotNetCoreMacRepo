@@ -1,6 +1,7 @@
 @using IainPlimmerApi.Interfaces;
 @using IainPlimmerApi.Models;
 @using IainPlimmerApi.Repositories;
+@using IainPlimmerApi.Extensions;
 
 @model IEnumerable<BlogPost>
 @inject IBlogPostRespository blogPostRespository
@@ -11,3 +12,16 @@
 
 <div>Hello, you can even use dependency injection STRAIGHT into a view:</div>
 <div>You have a blog post count of.... @await blogPostRespository.GetBlogPostCount()</div>
+
+
+<div>
+    <p>There is also no need to return basic collections from the repositor now as we have injected these straight into the view.</p>
+    <p>I don't advocate this though, this is a test project :)</p>
+    @foreach(var i in await blogPostRespository.GetBlogPosts())
+    {
+        <h3>@i.Title</h3>
+        <p>@i.CreatedDate.FormatMe()</p>
+        <a href="">Read more...</a>
+    }
+
+</div>

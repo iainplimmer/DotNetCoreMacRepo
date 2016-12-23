@@ -13,7 +13,7 @@ namespace IainPlimmerApi.Repositories
         public async Task<IEnumerable<BlogPost>> GetBlogPosts()
         {
             // lets MOCK the await here, the results should come from dapper or EF ideally.
-            await Task.Delay(500);
+            await Task.Delay(1);
 
             var posts = new List<BlogPost>();
             posts.Add(new BlogPost {
@@ -55,6 +55,7 @@ namespace IainPlimmerApi.Repositories
         /* Returns the number of blog posts made. */
         public async Task<int> GetBlogPostCount()
         {
+            await Task.Delay(1);
             var posts = await this.GetBlogPosts() as List<BlogPost>;
             return posts.Count;
         }
