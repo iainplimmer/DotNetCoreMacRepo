@@ -1,5 +1,4 @@
 using System;
-//using System.Linq;
 using System.Collections.Generic;
 using System.Threading.Tasks;
 using Microsoft.AspNetCore.Mvc;
@@ -10,10 +9,10 @@ using IainPlimmerApi.Models;
 namespace IainPlimmerApi.Controllers
 {
     [Route("api/[controller]")]
-    public class BlogPostController : Controller
+    public class BlogsController : Controller
     {
         IBlogPostRespository _repo;
-        public BlogPostController(IBlogPostRespository repo)
+        public BlogsController(IBlogPostRespository repo)
         {
             this._repo = repo;
         }

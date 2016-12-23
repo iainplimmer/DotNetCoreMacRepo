@@ -1,10 +1,10 @@
 using System.Collections.Generic;
-using IainPlimmerApi.Interfaces;
+using interfaces = IainPlimmerApi.Interfaces;
 using IainPlimmerApi.Models;
 
 namespace IainPlimmerApi.Repositories
 {
-    public class BlogPostRepository : IBlogPostRespository
+    public class BlogPostRepository : interfaces.IBlogPostRespository
     {
         /* Returns a list of artitary blog posts */
         public IEnumerable<BlogPost> GetBlogPosts()
