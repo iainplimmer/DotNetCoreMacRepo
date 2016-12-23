@@ -21,10 +21,7 @@ namespace IainPlimmerApi.Controllers
         [HttpGet]
         public async Task<IEnumerable<BlogPost>> GetBlogPosts()
         {
-            //var i = new BlogPostRepository();
-            var iain = _repo.GetBlogPosts();
-            
-            return iain;
+            return await _repo.GetBlogPosts();            
         }
     }
 }

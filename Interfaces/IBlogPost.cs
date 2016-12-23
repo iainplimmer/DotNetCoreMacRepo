@@ -1,11 +1,12 @@
 using System.Collections.Generic;
 using IainPlimmerApi.Models;
+using System.Threading.Tasks;
 
 namespace IainPlimmerApi.Interfaces
 {
     public interface IBlogPostRespository
     {
-        IEnumerable<BlogPost> GetBlogPosts();
-        int GetBlogPostCount();
+        Task<IEnumerable<BlogPost>> GetBlogPosts();
+        Task<int> GetBlogPostCount();
     }
 }
