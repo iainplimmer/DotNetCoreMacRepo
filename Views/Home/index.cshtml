@@ -10,18 +10,27 @@
     Layout = "_Layout";
 }
 
-<div>Hello, you can even use dependency injection STRAIGHT into a view:</div>
+<!-- Start of ASP.NET DI repo calls -->
+<h1>ASP.NET DI Shizzle......</h1>
+<p>You can use dependency injection STRAIGHT into a view. I don't advocate this though, this is a test project :)</p>
 <div>You have a blog post count of.... @await blogPostRespository.GetBlogPostCount()</div>
-
-
-<div>
-    <p>There is also no need to return basic collections from the repositor now as we have injected these straight into the view.</p>
-    <p>I don't advocate this though, this is a test project :)</p>
+<div>  
     @foreach(var i in await blogPostRespository.GetBlogPosts())
     {
         <h3>@i.Title</h3>
         <p>@i.CreatedDate.FormatMe()</p>
         <a href="">Read more...</a>
     }
+</div>
+
+<!-- Start of AngularJS repo calls -->
+<h1>Angular Shizzle......</h1>
+<p>Calling the angular services from the API here now...... looks like the WebAPI formats the properties of the JSON object to camel case though. So there is a disparity between this and the Model above.</p>
+<div ng-app='ngIainPlimmerApi' ng-controller='TestController as $ctrl'>
+    <div>You have a blog post count of .... {{$ctrl.BlogPostCount}}</div>
+
+    <h3 ng-repeat-start="blog in $ctrl.BlogPosts">{{blog.title}}</h3>
+    <p>{{blog.createdDate}}</p>
+    <a href="" ng-repeat-end>Read more...</a>
 
 </div>
