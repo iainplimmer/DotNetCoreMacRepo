@@ -54,7 +54,6 @@ namespace IainPlimmerApi.Repositories
         /* Returns the number of blog posts made. */
         public async Task<int> GetBlogPostCount()
         {
-            await Task.Delay(1);
             var posts = await this.GetBlogPosts() as List<BlogPost>;
             return posts.Count;
         }
